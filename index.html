@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chá Chán (茶禅) — премиальный интернет-магазин китайского чая. Элитные сорта пуэра, улуна, зеленого, белого и красного чая напрямую от фермеров. Умный подбор чая и таймер заваривания.">
+  <title>Chá Chán (茶禅) — Премиальный китайский чай</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18M5 12h14M8.5 7.5l7 7M15.5 7.5l-7 7" />
+        </svg>
+        <span class="logo-text">CHÁ <span>CHÁN</span></span>
+      </a>
+      
+      <nav>
+        <ul>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#quiz-section">Подбор чая</a></li>
+          <li><a href="#shop-section">Магазин</a></li>
+          <li><a href="#timer-section">Таймер</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="cart-toggle" id="cart-toggle" aria-label="Открыть корзину">
+          <svg class="cart-icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container" style="position: relative; z-index: 10;">
+      <div class="hero-content">
+        <span class="hero-badge">Элитная коллекция китайского чая</span>
+        <h1 class="hero-title">Путь чая — это<br><span>путь к гармонии</span></h1>
+        <p class="hero-description">
+          Мы поставляем коллекционный чай из фермерских хозяйств Юньнани, Фуцзяни и Уишани. Каждый лист собран вручную и бережно доставлен, чтобы вы могли прикоснуться к древней культуре Китая.
+        </p>
+        <div class="hero-buttons">
+          <a href="#shop-section" class="btn btn-primary scroll-to-shop">В каталог</a>
+          <a href="#quiz-section" class="btn btn-outline" style="scroll-behavior: smooth;">Подобрать чай</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tea Quiz Section -->
+  <section class="quiz-section" id="quiz-section">
+    <div class="container">
+      <h2 class="section-title">Чайный навигатор</h2>
+      <p class="section-subtitle">Ответьте на 4 вопроса о вашем состоянии и предпочтениях, и мы подберем сорт чая, идеальный именно для вас сегодня.</p>
+      
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted);">Интерактивный тест</span>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress" id="quiz-progress"></div>
+          </div>
+        </div>
+        
+        <!-- Step 1: Mood -->
+        <div class="quiz-step" data-step="0">
+          <h3 class="quiz-question">Как вы себя чувствуете в данный момент?</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" data-question="mood" data-value="tired">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+              <span class="quiz-option-text">Чувствую усталость, нужен заряд бодрости</span>
+            </div>
+            <div class="quiz-option" data-question="mood" data-value="stressed">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="quiz-option-text">В напряжении, хочу успокоиться и расслабиться</span>
+            </div>
+            <div class="quiz-option" data-question="mood" data-value="reflective">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+              <span class="quiz-option-text">Созерцательно, ищу вдохновение и глубину</span>
+            </div>
+            <div class="quiz-option" data-question="mood" data-value="neutral">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="quiz-option-text">Все хорошо, хочу приятное дополнение к дню</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Flavor -->
+        <div class="quiz-step" data-step="1">
+          <h3 class="quiz-question">Какие вкусовые профили вас больше привлекают?</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" data-question="flavor" data-value="fresh">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18M5 12h14" /></svg>
+              <span class="quiz-option-text">Свежие, травянистые, цветочные ноты</span>
+            </div>
+            <div class="quiz-option" data-question="flavor" data-value="sweet">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582" /></svg>
+              <span class="quiz-option-text">Медовые, сухофруктовые, карамельные</span>
+            </div>
+            <div class="quiz-option" data-question="flavor" data-value="earthy">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg>
+              <span class="quiz-option-text">Землистые, плотные, древесные, густые</span>
+            </div>
+            <div class="quiz-option" data-question="flavor" data-value="smoky">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" /></svg>
+              <span class="quiz-option-text">Мягкие пряные, дымные, с горчинкой коры</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Time -->
+        <div class="quiz-step" data-step="2">
+          <h3 class="quiz-question">В какое время суток вы планируете чаепитие?</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" data-question="time" data-value="morning">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+              <span class="quiz-option-text">Утром, чтобы легко проснуться и настроиться</span>
+            </div>
+            <div class="quiz-option" data-question="time" data-value="afternoon">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="quiz-option-text">Днем во время работы, для концентрации</span>
+            </div>
+            <div class="quiz-option" data-question="time" data-value="evening">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+              <span class="quiz-option-text">Вечером перед сном, для глубокого релакса</span>
+            </div>
+            <div class="quiz-option" data-question="time" data-value="ceremony">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" /></svg>
+              <span class="quiz-option-text">В любое время, для медитативной церемонии</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Level -->
+        <div class="quiz-step" data-step="3">
+          <h3 class="quiz-question">Каков ваш опыт в культуре китайского чая?</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" data-question="level" data-value="beginner">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="quiz-option-text">Новичок, только открываю этот мир</span>
+            </div>
+            <div class="quiz-option" data-question="level" data-value="medium">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-9 0h9" /></svg>
+              <span class="quiz-option-text">Любитель, пью качественный чай дома</span>
+            </div>
+            <div class="quiz-option" data-question="level" data-value="pro">
+              <svg class="quiz-option-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499c.174-.627 1.06-.627 1.234 0l1.834 6.643a1 1 0 00.95.69h6.905c.656 0 .93.84.4 1.248l-5.584 4.09a1 1 0 00-.364 1.118l2.185 6.642c.193.587-.482 1.077-1.026.708l-5.585-4.09a1 1 0 00-1.176 0l-5.586 4.09c-.544.37-1.219-.12-1.026-.708l2.185-6.642a1 1 0 00-.364-1.118L2.98 12.08c-.53-.408-.256-1.248.4-1.248h6.905a1 1 0 00.95-.69l1.835-6.643z" /></svg>
+              <span class="quiz-option-text">Ценитель чая, ищу редкие, сложные вкусы</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-nav">
+          <button class="btn btn-outline" id="quiz-btn-back">Назад</button>
+          <button class="btn btn-primary" id="quiz-btn-next" disabled>Далее</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="catalog-section" id="shop-section">
+    <div class="container">
+      <h2 class="section-title">Коллекция чая</h2>
+      <p class="section-subtitle">Каждый лот собран вручную, бережно хранится при контролируемой температуре и влажности в нашем шоуруме.</p>
+      
+      <div class="catalog-controls">
+        <div class="filters-wrapper">
+          <button class="filter-btn active" data-category="all">Все сорта</button>
+          <button class="filter-btn" data-category="puerh">Пуэр</button>
+          <button class="filter-btn" data-category="green">Зеленый</button>
+          <button class="filter-btn" data-category="oolong">Улун</button>
+          <button class="filter-btn" data-category="white">Белый</button>
+          <button class="filter-btn" data-category="black">Красный/Черный</button>
+        </div>
+        
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input type="text" class="search-input" id="search-input" placeholder="Поиск по сорту или региону...">
+        </div>
+      </div>
+      
+      <div class="products-grid" id="products-grid">
+        <!-- Products dynamically rendered from app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Brewing Timer Section -->
+  <section class="brewing-section" id="timer-section">
+    <div class="container">
+      <h2 class="section-title">Мастер заваривания</h2>
+      <p class="section-subtitle">Секрет идеальной пиалы чая — в точности. Выберите сорт чая, метод заваривания, и следуйте указаниям таймера.</p>
+      
+      <div class="brewing-grid">
+        <!-- Configuration Card -->
+        <div class="brewing-config-card">
+          <div class="brewing-tabs">
+            <button class="brewing-tab active" id="tab-gongfu">Метод проливов (Гунфу Ча)</button>
+            <button class="brewing-tab" id="tab-western">Настаивание (Западный метод)</button>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="timer-tea-select">Выберите чай</label>
+            <select class="select-custom" id="timer-tea-select">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+          
+          <div class="brewing-parameters">
+            <div class="param-node">
+              <div class="param-val" id="timer-param-temp">95°C</div>
+              <div class="param-lbl">Температура</div>
+            </div>
+            <div class="param-node">
+              <div class="param-val" id="timer-param-amount">6г</div>
+              <div class="param-lbl">Навеска на 100мл</div>
+            </div>
+            <div class="param-node">
+              <div class="param-val" id="timer-param-vessel">Гайвань</div>
+              <div class="param-lbl">Посуда</div>
+            </div>
+          </div>
+          
+          <!-- Steep Tracker (Only visible in Gongfu mode) -->
+          <div class="steep-tracker" id="steep-tracker-wrapper">
+            <div style="display: flex; flex-direction: column;">
+              <span style="font-size:0.75rem; color:var(--color-text-muted); text-transform:uppercase;">Текущий пролив</span>
+              <span style="font-weight: 600; font-size:1.1rem; color: var(--color-gold);">Пролив №<span id="steep-val">1</span></span>
+            </div>
+            <div class="steep-buttons">
+              <button class="btn-counter" id="btn-steep-minus" aria-label="Предыдущий пролив">-</button>
+              <button class="btn-counter" id="btn-steep-plus" aria-label="Следующий пролив">+</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 25px; font-size:0.85rem; color:var(--color-text-muted); line-height: 1.5;">
+            <p id="timer-style-tip">
+              * При заваривании проливом (Гунфу Ча) мы совершаем много быстрых завариваний в небольшой емкости. С каждым новым проливом увеличивайте время на 3-5 секунд.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Timer Interface -->
+        <div class="timer-container">
+          <div class="timer-ring-wrapper">
+            <svg class="timer-svg" viewBox="0 0 280 280">
+              <circle class="timer-circle-bg" cx="140" cy="140" r="130" />
+              <!-- strokeDasharray is 2 * PI * r = 2 * 3.14159 * 130 = 816.8 -->
+              <circle class="timer-circle-progress" id="timer-circle-progress" cx="140" cy="140" r="130" stroke-dasharray="816" stroke-dashoffset="0" />
+            </svg>
+            
+            <div class="timer-face">
+              <!-- Steam lines for dynamic visual -->
+              <div class="timer-steam" id="timer-steam">
+                <div class="steam-line"></div>
+                <div class="steam-line"></div>
+                <div class="steam-line"></div>
+              </div>
+              <div class="timer-time" id="timer-time">00:10</div>
+              <div class="timer-status" id="timer-status">Готов к проливу</div>
+            </div>
+          </div>
+          
+          <div class="timer-controls">
+            <button class="btn-timer" id="timer-reset" aria-label="Сбросить таймер">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+            </button>
+            <button class="btn-timer primary" id="timer-start" aria-label="Запустить заваривание">
+              <!-- Play icon -->
+              <svg id="timer-start-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+              <!-- Pause icon -->
+              <svg id="timer-pause-icon" viewBox="0 0 24 24" style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 5.25v13.5m-7.5-13.5v13.5" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-out Cart Sidebar -->
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2 style="font-family: var(--font-heading); font-size:1.6rem;">Ваша пиала чая</h2>
+      <button class="cart-close" id="cart-close" aria-label="Закрыть корзину">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- Cart items rendered dynamically -->
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-coupon-wrapper">
+        <input type="text" class="coupon-input" id="coupon-input" placeholder="Промокод (попробуйте TEAZEN10)">
+        <button class="btn btn-outline btn-small" id="btn-apply-coupon" style="padding:10px 16px;">Применить</button>
+      </div>
+      
+      <div class="cart-summary-line">
+        <span>Промежуточный итог:</span>
+        <span id="cart-subtotal">0 ₽</span>
+      </div>
+      <div class="cart-summary-line discount" id="cart-discount-row" style="display: none;">
+        <span>Скидка по купону (10%):</span>
+        <span id="cart-discount">-0 ₽</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Доставка:</span>
+        <span id="cart-shipping">0 ₽</span>
+      </div>
+      <div style="font-size:0.75rem; color:var(--color-text-muted); margin-bottom:12px;">
+        * Бесплатная доставка при заказе от 5 000 ₽.
+      </div>
+      
+      <div class="cart-summary-line total">
+        <span>ИТОГО:</span>
+        <span id="cart-total">0 ₽</span>
+      </div>
+      
+      <button class="btn btn-primary btn-checkout" id="btn-checkout">Оформить чаепитие</button>
+    </div>
+  </aside>
+
+  <!-- Modals -->
+
+  <!-- 1. Product Detail Modal -->
+  <div class="modal-backdrop" id="product-detail-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      
+      <div class="detail-grid">
+        <img class="detail-img" src="" alt="">
+        <div>
+          <div class="detail-tag">Категория</div>
+          <h2 class="detail-title">Название чая</h2>
+          <div class="detail-title-en" style="font-size:0.95rem; color:var(--color-text-muted); margin-top:-8px; margin-bottom:12px; font-style:italic;">English Name</div>
+          <div class="detail-price">0 ₽</div>
+          
+          <div class="detail-specs">
+            <div class="spec-item">
+              <span class="spec-lbl">Происхождение</span>
+              <span class="spec-val detail-origin">Регион</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-lbl">Сбор</span>
+              <span class="spec-val detail-vintage">Год</span>
+            </div>
+          </div>
+          
+          <p class="detail-desc">Описание чая</p>
+          
+          <div style="margin-bottom: 25px;">
+            <h4 style="font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-text-muted); margin-bottom:10px;">Вкусовые оттенки</h4>
+            <div class="detail-notes" style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <!-- Badges -->
+            </div>
+          </div>
+          
+          <!-- Brewing Guide widget -->
+          <div class="brewing-guide-box">
+            <div class="guide-box-title">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.168.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              Рецепт идеального заваривания
+            </div>
+            
+            <div style="font-size:0.8rem; text-transform:uppercase; color:var(--color-gold); margin-bottom:10px; font-weight:600;">Метод Гунфу Ча (Проливы)</div>
+            <div class="guide-params" style="margin-bottom: 15px;">
+              <div class="guide-param">Температура: <span class="guide-temp">95°C</span></div>
+              <div class="guide-param">Навеска / 100мл: <span class="guide-amount">6г</span></div>
+              <div class="guide-param">Посуда: <span class="guide-vessel">Гайвань</span></div>
+            </div>
+
+            <div style="font-size:0.8rem; text-transform:uppercase; color:var(--color-gold); margin-bottom:10px; font-weight:600;">Западный Метод (Настаивание)</div>
+            <div class="guide-params">
+              <div class="guide-param">Температура: <span class="guide-temp-west">95°C</span></div>
+              <div class="guide-param">Навеска / 300мл: <span class="guide-amount-west">2-3г</span></div>
+              <div class="guide-param">Посуда/Время: <span class="guide-vessel-west">Чайник / 3-5 мин</span></div>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px;">
+            <button class="btn btn-primary btn-buy-detail">Добавить в корзину</button>
+            <button class="btn btn-outline btn-timer-detail">Заварить в таймере</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Checkout Modal -->
+  <div class="modal-backdrop" id="checkout-modal">
+    <div class="modal-content checkout-modal">
+      <button class="modal-close" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      
+      <h2 style="font-family: var(--font-heading); font-size:2rem; margin-bottom:15px; text-align:center;">Оформление заказа</h2>
+      <p style="font-size:0.9rem; color:var(--color-text-muted); text-align:center; margin-bottom:30px;">Введите ваши данные для подтверждения заказа и получения чека.</p>
+      
+      <form class="checkout-form" id="checkout-form">
+        <input type="text" class="form-input" id="checkout-name" placeholder="Имя и Фамилия" required>
+        <input type="tel" class="form-input" id="checkout-phone" placeholder="Номер телефона (+7 ...)" required>
+        <input type="email" class="form-input" id="checkout-email" placeholder="Электронная почта" required>
+        <input type="text" class="form-input" id="checkout-address" placeholder="Адрес доставки чая" required>
+        
+        <button type="submit" class="btn btn-primary" style="margin-top:10px;">Подтвердить заказ</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Receipt Modal -->
+  <div class="modal-backdrop" id="receipt-modal">
+    <div class="modal-content" style="max-width: 480px; padding: 20px; background: transparent; border: none; box-shadow: none;">
+      <button class="modal-close" aria-label="Закрыть" style="color: var(--color-text-light); z-index: 50; top: 10px; right: 10px;">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      
+      <div id="receipt-container">
+        <!-- Receipt generated dynamically in app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo" style="margin-bottom: 20px;">
+          <svg class="logo-icon" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18M5 12h14M8.5 7.5l7 7M15.5 7.5l-7 7" />
+          </svg>
+          <span class="logo-text">CHÁ <span>CHÁN</span></span>
+        </a>
+        <p style="line-height: 1.7; font-size:0.85rem;">
+          Мы создаем пространство покоя и осознанности в городской суете. Наш чай — это мост между древней традицией фермеров Поднебесной и современным человеком, ищущим баланс.
+        </p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Разделы</h4>
+        <ul class="footer-links">
+          <li><a href="#">Главная</a></li>
+          <li><a href="#quiz-section">Подбор чая</a></li>
+          <li><a href="#shop-section">Чайный магазин</a></li>
+          <li><a href="#timer-section">Помощник заваривания</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Уроки чая</h4>
+        <ul class="footer-links" style="font-size: 0.85rem;">
+          <li>Сначала прогрейте посуду кипятком.</li>
+          <li>Никогда не заливайте чай кипящей водой (100°C), дайте воде остыть.</li>
+          <li>При проливах первый пролив держат 5-15 секунд и сразу сливают.</li>
+          <li>Пейте чай маленькими глотками, вдыхая аромат из пиалы.</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Подписка на Чайный Листок</h4>
+        <p style="font-size:0.85rem; margin-bottom:15px;">Получайте новости о свежих поставках, редких блинах пуэра и чайных церемониях.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Вы успешно подписались на рассылку!'); this.reset();">
+          <input type="email" class="newsletter-input" placeholder="Ваш Email" required>
+          <button type="submit" class="newsletter-btn">Ок</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div>© 2026 Chá Chán (茶禅). Все права защищены. Разработано с любовью к чайной культуре.</div>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15.82-.77 4.47-1.08 6.16-.14.72-.4 1.1-.65 1.13-.56.05-.98-.37-1.52-.73-.85-.56-1.33-.9-2.15-1.44-.95-.62-.33-.96.21-1.52.14-.15 2.59-2.37 2.64-2.58.01-.03.01-.13-.05-.18-.06-.05-.15-.03-.21-.02-.09.02-1.51.96-4.26 2.81-.4.28-.77.41-1.09.4-.36-.01-1.06-.2-1.58-.37-.64-.21-1.15-.32-1.1-.68.02-.19.28-.38.77-.58 3.01-1.31 5.02-2.17 6.03-2.58 2.88-1.18 3.48-1.39 3.87-1.39.09 0 .28.02.4.12.1.09.13.22.14.32-.01.07 0 .21-.02.32z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 12s0-3.85-.53-5.82c-.3-.1.14-.98-.45-1.58C21.43 4 19.5 4 12 4S2.57 4 1.98 4.6c-.6.6-.15 1.48-.45 1.58C1 8.15 1 12 1 12s0 3.85.53 5.82c.3.1-.14.98.45 1.58C2.57 20 4.5 20 12 20s9.43 0 10.02-.6c.6-.6.15-1.48.45-1.58.53-1.97.53-5.82.53-5.82zM9.75 15.02V8.98L15 12l-5.25 3.02z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
